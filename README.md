@@ -1,3 +1,5 @@
+[![View project on npm](https://img.shields.io/npm/v/serviceworker-loader.svg?style=flat)](https://npmjs.org/package/serviceworker-loader)
+
 # ServiceWorker loader for Webpack
 
 ```bash
