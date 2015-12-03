@@ -16,6 +16,12 @@ var registerServiceWorker = require("serviceworker!./sw.js");
 registerServiceWorker({ scope: '/' }).then(success, error);
 ```
 
+## Options
+
+Passing as query parameters:
+- scope: directory to place the script (default: '/')
+- name: filename of the script (default: 'sw.js')
+
 ## Credit
 
 This loader is based almost entirely on [worker-loader](https://github.com/webpack/worker-loader) by [@sokra](https://github.com/sokra).
