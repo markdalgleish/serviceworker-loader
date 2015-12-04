@@ -8,9 +8,10 @@ module.exports.pitch = function(request) {
   if(!this.webpack) throw new Error("Only usable with webpack");
   var callback = this.async();
   var query = loaderUtils.parseQuery(this.query);
+  var scope = query.scope || "/";
   var outputOptions = {
-    filename: "[hash].serviceworker.js",
-    chunkFilename: "[id].[hash].serviceworker.js",
+    filename: query.name || "sw.js",
+    chunkFilename: query.name || "sw.js",
     namedChunkFilename: null
   };
   if(this.options && this.options.worker && this.options.worker.output) {
@@ -36,7 +37,11 @@ module.exports.pitch = function(request) {
   });
   workerCompiler.runAsChild(function(err, entries, compilation) {
     if(err) return callback(err);
-    var workerFile = entries[0].files[0];
-    return callback(null, "module.exports = function(options) {\n\treturn navigator.serviceWorker.register(__webpack_public_path__ + " + JSON.stringify(workerFile) + ", options);\n};");
+    if (entries[0]) {
+        var workerFile = entries[0].files[0];
+        return callback(null, "module.exports = function(options) {\n\treturn navigator.serviceWorker.register(" + JSON.stringify(scope + workerFile) + ", options);\n};");
+    } else {
+        return callback(null, null);
+    }
   });
 }
