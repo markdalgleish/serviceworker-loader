@@ -13,16 +13,17 @@ module.exports.pitch = function(request) {
     chunkFilename: "[id].[hash].serviceworker.js",
     namedChunkFilename: null
   };
-  if(this.options && this.options.worker && this.options.worker.output) {
-    for(var name in this.options.worker.output) {
-      outputOptions[name] = this.options.worker.output[name];
+  var options = this.options && (this.options.serviceworker || this.options.worker);
+  if(options && options.output) {
+    for(var name in options.output) {
+      outputOptions[name] = options.output[name];
     }
   }
   var workerCompiler = this._compilation.createChildCompiler("serviceworker", outputOptions);
   workerCompiler.apply(new WebWorkerTemplatePlugin(outputOptions));
   workerCompiler.apply(new SingleEntryPlugin(this.context, "!!" + request, "main"));
-  if(this.options && this.options.worker && this.options.worker.plugins) {
-    this.options.worker.plugins.forEach(function(plugin) {
+  if(options && options.plugins) {
+    options.plugins.forEach(function(plugin) {
       workerCompiler.apply(plugin);
     });
   }
