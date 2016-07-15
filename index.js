@@ -8,9 +8,11 @@ module.exports.pitch = function(request) {
   if(!this.webpack) throw new Error("Only usable with webpack");
   var callback = this.async();
   var query = loaderUtils.parseQuery(this.query);
+  var filename = query.filename || "serviceworker.js";
+  if(!query.nohash) filename = "[hash]." + filename;
   var outputOptions = {
-    filename: "[hash].serviceworker.js",
-    chunkFilename: "[id].[hash].serviceworker.js",
+    filename: filename,
+    chunkFilename: "[id]." + filename,
     namedChunkFilename: null
   };
   if(this.options && this.options.worker && this.options.worker.output) {
