@@ -15,10 +15,7 @@
     "type": "git",
     "url": "git://github.com/markdalgleish/serviceworker-loader.git"
   },
-  "description": "serviceworker loader module for webpack",
-  "peerDependencies": {
-    "webpack": "<3"
-  },
+  "description": "service-worker loader module for webpack",
   "dependencies": {
     "loader-utils": "0.2.x"
   },
