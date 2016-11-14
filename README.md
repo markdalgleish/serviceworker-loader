@@ -16,6 +16,11 @@ var registerServiceWorker = require("service-worker!./sw.js");
 registerServiceWorker({ scope: '/' }).then(success, error);
 ```
 
+### Options
+
+#### `filename`
+Defaults to `"[hash].serviceworker.js"`. Specify the file name for generated Service Worker file
+
 ## Credit
 
 This loader is based almost entirely on [worker-loader](https://github.com/webpack/worker-loader) by [@sokra](https://github.com/sokra).

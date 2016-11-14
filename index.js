@@ -9,8 +9,8 @@ module.exports.pitch = function(request) {
   var callback = this.async();
   var query = loaderUtils.parseQuery(this.query);
   var outputOptions = {
-    filename: "[hash].serviceworker.js",
-    chunkFilename: "[id].[hash].serviceworker.js",
+    filename: query.filename || "[hash].serviceworker.js",
+    chunkFilename: "[id]." + filename,
     namedChunkFilename: null
   };
   var options = this.options && (this.options.serviceworker || this.options.worker);
