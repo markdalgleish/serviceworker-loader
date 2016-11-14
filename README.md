@@ -1,9 +1,9 @@
-[![View project on npm](https://img.shields.io/npm/v/serviceworker-loader.svg?style=flat)](https://npmjs.org/package/serviceworker-loader)
-
 # ServiceWorker loader for Webpack
 
+> A fork of [serviceworker-loader](https://github.com/markdalgleish/serviceworker-loader) that is actively maintained.
+
 ```bash
-$ npm install --save-dev serviceworker-loader
+$ npm install --save-dev service-worker-loader
 ```
 
 ## Usage
@@ -11,7 +11,7 @@ $ npm install --save-dev serviceworker-loader
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
 
 ```javascript
-var registerServiceWorker = require("serviceworker!./sw.js");
+var registerServiceWorker = require("service-worker!./sw.js");
 
 registerServiceWorker({ scope: '/' }).then(success, error);
 ```
