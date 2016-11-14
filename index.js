@@ -36,7 +36,12 @@ module.exports.pitch = function(request) {
   });
   workerCompiler.runAsChild(function(err, entries, compilation) {
     if(err) return callback(err);
-    var workerFile = entries[0].files[0];
-    return callback(null, "module.exports = function(options) {\n\treturn navigator.serviceWorker.register(__webpack_public_path__ + " + JSON.stringify(workerFile) + ", options);\n};");
+    if (entries[0]) {
+        var workerFile = entries[0].files[0];
+        return callback(null, "module.exports = function(options) {\n\treturn navigator.serviceWorker.register(__webpack_public_path__ + " + JSON.stringify(workerFile) + ", options);\n};");
+    } else {
+        return callback(null, null);
+    }
   });
+
 }
