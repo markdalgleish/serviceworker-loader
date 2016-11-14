@@ -21,6 +21,9 @@ registerServiceWorker({ scope: '/' }).then(success, error);
 #### `filename`
 Defaults to `"[hash].serviceworker.js"`. Specify the file name for generated Service Worker file
 
+#### `publicPath`
+Overrides default `publicPath`. This in conjunction with [`CopyPlugin`](https://www.npmjs.com/package/copy-webpack-plugin) lets you serve the Service Worker file from root.
+
 ## Credit
 
 This loader is based almost entirely on [worker-loader](https://github.com/webpack/worker-loader) by [@sokra](https://github.com/sokra).
