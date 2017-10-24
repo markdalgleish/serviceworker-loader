@@ -1,7 +1,7 @@
 {
   "name": "service-worker-loader",
-  "version": "0.5.0",
-  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Modern ServiceWorker loader for Webpack.",
   "authors": [
     {
       "name": "Mark Dalgleish",
@@ -10,20 +10,54 @@
     {
       "name": "Mohsen Azimi",
       "url": "https://azimi.me"
+    },
+    {
+      "name": "Dan Green",
+      "url": "https://trigen.pro"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/markdalgleish/serviceworker-loader.git"
+    "url": "git://github.com/mohsen1/service-worker-loader.git"
   },
-  "description": "service-worker loader module for webpack",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "eslint": "eslint --cache 'src/*.js'",
+    "build": "npm run eslint && rollup -c",
+    "prepublish": "npm run build"
+  },
+  "peerDependencies": {
+    "webpack": "^2.0.0 || ^3.0.0"
+  },
   "dependencies": {
-    "loader-utils": "0.2.x"
+    "loader-utils": "^1.1.0",
+    "schema-utils": "^0.3.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://markdalgleish.mit-license.org"
-    }
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.9.0",
+    "eslint-config-trigen": "^1.2.0",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.4",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "files": [
+    "lib"
   ]
 }

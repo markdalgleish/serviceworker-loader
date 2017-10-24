@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "filename": {
+      "type": "string"
+    },
+    "publicPath": {
+      "type": "string"
+    },
+    "outputPath": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
