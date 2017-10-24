@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/service-worker-loader.svg)](https://www.npmjs.com/package/service-worker-loader)
 [![Dependency Status](https://img.shields.io/david/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader)
-[![devDependency Status](https://img.shields.io/david/dev/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader#info=peerDependencies)
+[![peerDependency Status](https://img.shields.io/david/peer/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader#info=peerDependencies)
 [![devDependency Status](https://img.shields.io/david/dev/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader#info=devDependencies)
 
 Modern ServiceWorker loader for Webpack.
