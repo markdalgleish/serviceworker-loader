@@ -1,20 +1,59 @@
-[![View project on npm](https://img.shields.io/npm/v/serviceworker-loader.svg?style=flat)](https://npmjs.org/package/serviceworker-loader)
+# serviceworker-loader
 
-# ServiceWorker loader for Webpack
+[![NPM version][npm]][npm-url]
+[![Node version][node]][node-url]
+[![Peer dependency status][peer-deps]][peer-deps-url]
+[![Dependency status][deps]][deps-url]
 
-```bash
-$ npm install --save-dev serviceworker-loader
+[npm]: https://img.shields.io/npm/v/serviceworker-loader.svg
+[npm-url]: https://www.npmjs.com/package/serviceworker-loader
+
+[node]: https://img.shields.io/node/v/serviceworker-loader.svg
+[node-url]: https://nodejs.org
+
+[peer-deps]: https://img.shields.io/david/peer/markdalgleish/serviceworker-loader.svg
+[peer-deps-url]: https://david-dm.org/markdalgleish/serviceworker-loader?type=peer
+
+[deps]: https://img.shields.io/david/markdalgleish/serviceworker-loader.svg
+[deps-url]: https://david-dm.org/markdalgleish/serviceworker-loader
+
+Modern ServiceWorker loader for [Webpack](https://webpack.js.org).
+
+## Install
+
+```sh
+npm i -D serviceworker-loader
+# or
+yarn add -D serviceworker-loader
 ```
 
-## Usage
+## [Usage](https://webpack.js.org/concepts/loaders)
 
-[Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
+```js
+import registerServiceWorker, { ServiceWorkerNoSupportError } from 'serviceworker!./sw';
 
-```javascript
-var registerServiceWorker = require("serviceworker!./sw.js");
-
-registerServiceWorker({ scope: '/' }).then(success, error);
+registerServiceWorker({ scope: '/' }).then(() => {
+	console.log('Success!');
+}).catch((err) => {
+	
+	if (err instanceof ServiceWorkerNoSupportError) {
+		console.log('ServiceWorker is not supported.');
+	} else {
+		console.log('Error!');
+	}
+});
 ```
+
+### Options
+
+#### `filename`
+Defaults to `"[hash].[name].js"`. Specify the file name for generated Service Worker file
+
+#### `publicPath`
+Defaults to `"/"`. Overrides default `publicPath`. 
+
+#### `outputPath`
+Overrides output path for all ServiceWorkers.
 
 ## Credit
 
@@ -22,4 +61,7 @@ This loader is based almost entirely on [worker-loader](https://github.com/webpa
 
 ## License
 
-MIT (http://markdalgleish.mit-license.org)
+MIT
+
+---
+[![NPM](https://nodei.co/npm/serviceworker-loader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/serviceworker-loader/)

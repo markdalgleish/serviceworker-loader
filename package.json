@@ -1,25 +1,84 @@
 {
-	"name": "serviceworker-loader",
-	"version": "0.1.0",
-	"author": {
-    "name": "Mark Dalgleish",
-    "url": "http://markdalgleish.com"
-  },
+  "name": "serviceworker-loader",
+  "version": "1.0.0",
+  "description": "Modern ServiceWorker loader for Webpack.",
+  "authors": [
+    {
+      "name": "Mark Dalgleish",
+      "url": "http://markdalgleish.com"
+    },
+    {
+      "name": "Mohsen Azimi",
+      "url": "https://azimi.me"
+    },
+    {
+      "name": "Dan Green",
+      "url": "https://trigen.pro"
+    }
+  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/markdalgleish/serviceworker-loader.git"
   },
-	"description": "serviceworker loader module for webpack",
-	"peerDependencies": {
-		"webpack": ">=0.9 <2"
-	},
-	"dependencies": {
-		"loader-utils": "0.2.x"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://markdalgleish.mit-license.org"
-		}
-	]
+  "bugs": {
+    "url": "https://github.com/markdalgleish/serviceworker-loader/issues"
+  },
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "lint": "eslint --cache 'src/*.js'",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "serviceworker",
+    "webpack",
+    "webpack-loader"
+  ],
+  "peerDependencies": {
+    "webpack": "^2.0.0 || ^3.0.0"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0",
+    "schema-utils": "^0.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "escope": "^3.6.0",
+    "eslint": "^4.11.0",
+    "eslint-config-trigen": "^2.2.0",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.4",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "6"
+          }
+        }
+      ],
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "files": [
+    "lib"
+  ]
 }
