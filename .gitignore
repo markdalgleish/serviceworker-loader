@@ -13,6 +13,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+.nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -35,5 +36,8 @@ node_modules
 # OS X stuff
 .DS_Store
 
-# Build results
+# Some caches
+.eslintcache
+
+# Compiled dist
 lib

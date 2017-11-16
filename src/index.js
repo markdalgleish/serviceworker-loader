@@ -3,7 +3,7 @@ import loaderUtils from 'loader-utils';
 import validateOptions from 'schema-utils';
 import SingleEntryPlugin from 'webpack/lib/SingleEntryPlugin';
 import WebWorkerTemplatePlugin from 'webpack/lib/webworker/WebWorkerTemplatePlugin';
-import getServiceWorker from './service-worker';
+import getServiceWorker from './serviceworker';
 import LoaderError from './loader-error';
 import schema from './options.json';
 

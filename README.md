@@ -1,26 +1,36 @@
-# service-worker-loader
+# serviceworker-loader
 
-[![NPM version](https://img.shields.io/npm/v/service-worker-loader.svg)](https://www.npmjs.com/package/service-worker-loader)
-[![Dependency Status](https://img.shields.io/david/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader)
-[![peerDependency Status](https://img.shields.io/david/peer/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader#info=peerDependencies)
-[![devDependency Status](https://img.shields.io/david/dev/mohsen1/service-worker-loader.svg)](https://david-dm.org/mohsen1/service-worker-loader#info=devDependencies)
+[![NPM version][npm]][npm-url]
+[![Node version][node]][node-url]
+[![Peer dependency status][peer-deps]][peer-deps-url]
+[![Dependency status][deps]][deps-url]
 
-Modern ServiceWorker loader for Webpack.
+[npm]: https://img.shields.io/npm/v/serviceworker-loader.svg
+[npm-url]: https://www.npmjs.com/package/serviceworker-loader
+
+[node]: https://img.shields.io/node/v/serviceworker-loader.svg
+[node-url]: https://nodejs.org
+
+[peer-deps]: https://img.shields.io/david/peer/markdalgleish/serviceworker-loader.svg
+[peer-deps-url]: https://david-dm.org/markdalgleish/serviceworker-loader?type=peer
+
+[deps]: https://img.shields.io/david/markdalgleish/serviceworker-loader.svg
+[deps-url]: https://david-dm.org/markdalgleish/serviceworker-loader
+
+Modern ServiceWorker loader for [Webpack](https://webpack.js.org).
 
 ## Install
 
 ```sh
-npm install --save-dev service-worker-loader
-```
-or
-```sh
-yarn add -D service-worker-loader
+npm i -D serviceworker-loader
+# or
+yarn add -D serviceworker-loader
 ```
 
 ## [Usage](https://webpack.js.org/concepts/loaders)
 
 ```js
-import registerServiceWorker, { ServiceWorkerNoSupportError } from 'service-worker!./sw';
+import registerServiceWorker, { ServiceWorkerNoSupportError } from 'serviceworker!./sw';
 
 registerServiceWorker({ scope: '/' }).then(() => {
 	console.log('Success!');
@@ -52,3 +62,6 @@ This loader is based almost entirely on [worker-loader](https://github.com/webpa
 ## License
 
 MIT
+
+---
+[![NPM](https://nodei.co/npm/serviceworker-loader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/serviceworker-loader/)

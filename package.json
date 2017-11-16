@@ -1,5 +1,5 @@
 {
-  "name": "service-worker-loader",
+  "name": "serviceworker-loader",
   "version": "1.0.0",
   "description": "Modern ServiceWorker loader for Webpack.",
   "authors": [
@@ -16,17 +16,29 @@
       "url": "https://trigen.pro"
     }
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mohsen1/service-worker-loader.git"
+    "url": "git://github.com/markdalgleish/serviceworker-loader.git"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markdalgleish/serviceworker-loader/issues"
+  },
   "main": "lib/index.js",
-  "scripts": {
-    "eslint": "eslint --cache 'src/*.js'",
-    "build": "npm run eslint && rollup -c",
-    "prepublish": "npm run build"
+  "engines": {
+    "node": ">=6.0.0"
   },
+  "scripts": {
+    "lint": "eslint --cache 'src/*.js'",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "serviceworker",
+    "webpack",
+    "webpack-loader"
+  ],
   "peerDependencies": {
     "webpack": "^2.0.0 || ^3.0.0"
   },
@@ -40,17 +52,26 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
-    "eslint": "^4.9.0",
-    "eslint-config-trigen": "^1.2.0",
+    "escope": "^3.6.0",
+    "eslint": "^4.11.0",
+    "eslint-config-trigen": "^2.2.0",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.4",
+    "rollup-plugin-eslint": "^4.0.0",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0"
   },
   "babel": {
     "presets": [
-      "env",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "6"
+          }
+        }
+      ],
       "stage-0"
     ],
     "plugins": [
